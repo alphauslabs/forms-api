@@ -23,6 +23,8 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
 	defer r.Body.Close()
 	d, err := io.ReadAll(r.Body)
 	if err != nil {
